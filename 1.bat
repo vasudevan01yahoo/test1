@@ -1,2 +1,1 @@
-
-eco :o his
+echo his
