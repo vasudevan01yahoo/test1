@@ -10,20 +10,16 @@ node {
      
     }
     stage('Build Docker test'){
-      bat 'docker build -t react-test -f Dockerfile.test --no-cache . '
+      echo "dt"
     }
     stage('Docker test'){
-      bat 'docker run --rm react-test'
+      echo dt
     }
     stage('Clean Docker test'){
-      bat 'docker rmi react-test'
+      echo "cdt"
     }
     stage('Deploy'){
-      if(env.BRANCH_NAME == 'master'){
-        bat 'docker build -t react-app --no-cache .'
-        bat 'docker tag react-app localhost:5000/react-app'
-        bat 'docker push localhost:5000/react-app'
-        bat 'docker rmi -f react-app localhost:5000/react-app'
+     echo "deploy"
       }
     }
   }
